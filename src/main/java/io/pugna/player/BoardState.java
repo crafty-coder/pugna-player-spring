@@ -1,5 +1,7 @@
 package io.pugna.player;
 
+import io.pugna.player.model.Position;
+
 import java.util.List;
 
 public class BoardState {

@@ -1,5 +1,6 @@
 package io.pugna.player;
 
+import io.pugna.player.model.MovementRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +18,8 @@ public class MoveController {
     this.movementUseCase = movementUseCase;
   }
 
-  @PostMapping("/nextmove")
-  public ResponseEntity<String> nextMove(@RequestBody MoveRequest moveRequest) {
+  @PostMapping("/move")
+  public ResponseEntity<String> nextMove(@RequestBody MovementRequest moveRequest) {
     return ResponseEntity.ok(movementUseCase.execute(moveRequest));
   }
 }

@@ -1,5 +1,7 @@
 package io.pugna.player;
 
+import io.pugna.player.model.Coordinate;
+
 public class CoordinateDistance {
   private final Coordinate coordinate;
   private final Integer distance;

@@ -1,5 +1,8 @@
 package io.pugna.player;
 
+import io.pugna.player.model.Coordinate;
+import io.pugna.player.model.MovementRequest;
+import io.pugna.player.model.Position;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -23,12 +26,11 @@ public class MovementUseCase {
     STAY
   }
 
-  public String execute(MoveRequest moveRequest) {
+  public String execute(MovementRequest moveRequest) {
     Coordinate coordinateToMove = moveRequest.getPositionToMove().getCoordinate();
     String player = moveRequest.getPositionToMove().getPlayerName();
 
-    Optional<Coordinate> nearestEnemy = getNearestEnemy(player, coordinateToMove, moveRequest.getBoardState()
-            .getPositions());
+    Optional<Coordinate> nearestEnemy = getNearestEnemy(player, coordinateToMove, moveRequest.getBoard().getKnights());
 
     return nearestEnemy
             .map(e -> calculateMovement(coordinateToMove, e))

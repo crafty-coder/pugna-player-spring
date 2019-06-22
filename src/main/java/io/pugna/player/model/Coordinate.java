@@ -1,4 +1,4 @@
-package io.pugna.player;
+package io.pugna.player.model;
 
 import java.util.Objects;
 
